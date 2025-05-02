@@ -3,7 +3,7 @@
 		<<set $_target to $NPCList[$lefttarget]>>
 		<<if ($consensual is 1 and ($enemytype is "man" ? $promiscuity : $deviancy) lte 14 and !$promiscuityIgnore) or $punishmentposition is "gloryhole">>
 			<!-- 无操作 -->
-		<<elseif $_target.mouth is "kiss">>
+		<<elseif $_target.mouth and $_target.mouth.startsWith("kiss")>>
 			<!-- 无操作 -->
 		<<else>>
 			<<set _leftaction["引导:"] to "leftGuideMouth">>
