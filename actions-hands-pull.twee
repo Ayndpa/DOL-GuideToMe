@@ -1,0 +1,38 @@
+<<if $leftaction is "handpullmouth" or $rightaction is "handpullmouth">>
+		<<if $leftaction is "handpullmouth" and $rightaction is "handpullmouth">>
+			<<set $leftaction to 0>><<set $leftactiondefault to "handpullmouth">>
+			<<set $rightaction to 0>><<set $rightactiondefault to "handpullmouth">>
+			<<personselect $lefttarget>><<set $_handPullDifficulty to 500>>
+		<<elseif $leftaction is "handpullmouth">>
+			<<set $leftaction to 0>><<set $leftactiondefault to "handpullmouth">>
+			<<personselect $lefttarget>><<set $_handPullDifficulty to 1000>>
+		<<else>>
+			<<set $rightaction to 0>><<set $rightactiondefault to "handpullmouth">>
+			<<personselect $righttarget>><<set $_handPullDifficulty to 1000>>
+		<</if>>
+		<<brat 1>>
+
+		<<if combatSkillCheck("hand", _n, $NPCList[_n].fullDescription, $_handPullDifficulty)>>
+			你抓住了<<combatpersons>>的头，
+			<<if $mouthstate is "otherhand">>
+				<span class="green">并将<<his>>嘴从你的身上撬开。</span>
+			<<else>>
+				<span class="green">并将<<he>>从你的身上推开。</span>
+			<</if>>
+
+			<<set $NPCList[_n].mouth to 0>>
+		<<else>>
+			你试图抓住<<combatpersons>>的头，
+			<<if $mouthstate is "otherhand">>
+				<span class="red">但<<he>>反而咬得更紧以示反抗。</span>
+			<<else>>
+				<span class="red">但<<he>>躲开了你的手并继续。</span>
+			<</if>>
+			<<if $consensual is 1>>
+				<<set $consensual to 0>><<molested>><<controlloss>>
+			<</if>>
+			<<violence 1>>
+		<</if>>
+	<</if>>
+
+	<<if $leftaction is "handpullanus" or $rightaction is "handpullanus">>

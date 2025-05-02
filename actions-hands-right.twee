@@ -1,0 +1,29 @@
+<<widget "rightGuideMouth">>
+	<<if $righttarget isnot "self">>
+		<<set $_target to $NPCList[$righttarget]>>
+		<<if ($consensual is 1 and ($enemytype is "man" ? $promiscuity : $deviancy) lte 14 and !$promiscuityIgnore) or $punishmentposition is "gloryhole">>
+			<!-- 无操作 -->
+		<<else>>
+			<<set _rightaction["引导:"] to "rightGuideMouth">>
+			<<set _guideMouthTargets to {"无":"rest"}>>
+			<<set $_doText to ($consensual isnot 1 ? "尝试引导 " : "引导 ")>>
+
+			<<if !$_target.mouth.startsWith("chest")>>
+				<<set _guideMouthTargets[($_doText + $_target.pronouns.his + " 嘴巴到你胸前").toUpperFirst()] to "chestentrance">>
+			<</if>>
+			<<if $player.penisExist or $worn.genitals.type.includes("strap-on") or playerHasStrapon() >>
+				<<if !$_target.mouth.startsWith("penis")>>
+					<<set _guideMouthTargets[($_doText + $_target.pronouns.his + " 嘴巴到你的阴茎").toUpperFirst()] to "penisentrance">>
+				<</if>>
+			<</if>>
+			<<if !$_target.mouth.startsWith("vagina") and $player.vaginaExist>>
+				<<set _guideMouthTargets[($_doText + $_target.pronouns.his + " 嘴巴到你的小穴").toUpperFirst()] to "vaginaentrance">>
+			<</if>>
+			<<if !$_target.mouth.startsWith("anus")>>
+				<<set _guideMouthTargets[($_doText + $_target.pronouns.his + " 嘴巴到你的菊穴").toUpperFirst()] to "anusentrance">>
+			<</if>>
+		<</if>>
+	<</if>>
+<</widget>>
+
+<<widget "rightUndressOther">>

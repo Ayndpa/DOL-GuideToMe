@@ -1,0 +1,115 @@
+{
+    "name": "GuideToMe",
+    "version": "1.0.0",
+    "styleFileList": [],
+    "scriptFileList": [],
+    "tweeFileList": [],
+    "imgFileList": [],
+    "additionFile": [],
+    "addonPlugin": [
+        {
+            "modName": "TweeReplacer",
+            "addonName": "TweeReplacerAddon",
+            "modVersion": "^1.2.0",
+            "params": [
+                {
+                    "passage": "Widgets Actions Left Hand",
+                    "findString": "<<widget \"leftUndressOther\">>",
+                    "replaceFile": "actions-hands-left.twee",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Generation",
+                    "findString": "<<case \"leftUndressOther\">>\n\t\t<<if Object.keys(_undressLeftTargets).length gt 1>>\n\t\t\t<<listbox \"$undressLeftTarget\">>\n\t\t\t\t<<optionsfrom _undressLeftTargets>>\n\t\t\t<</listbox>>\n\t\t\t<<handdifficulty>> <<combatpromiscuous2>>\n\t\t<</if>>",
+                    "replace": "<<case \"leftUndressOther\">>\n\t\t<<if Object.keys(_undressLeftTargets).length gt 1>>\n\t\t\t<<listbox \"$undressLeftTarget\">>\n\t\t\t\t<<optionsfrom _undressLeftTargets>>\n\t\t\t<</listbox>>\n\t\t\t<<handdifficulty>> <<combatpromiscuous2>>\n\t\t<</if>>\n\t\t<<case \"leftGuideMouth\">>\n\t\t\t<<if Object.keys(_guideMouthTargets).length gt 0>>\n\t\t\t\t<<listbox \"$mouthGuideLeft\">>\n\t\t\t\t\t<<optionsfrom _guideMouthTargets>>\n\t\t\t\t<</listbox>>\n\t\t\t<</if>>\n\t\t\t<<handdifficulty>> <<combatpromiscuous3>>",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Generation",
+                    "findString": "<<handsstrugglefreebodypart \"left\">>\n\t\t\t\t<<leftUndressOther>>",
+                    "replace": "<<handsstrugglefreebodypart \"left\">>\n\t\t\t\t<<leftUndressOther>>\n\t\t\t\t<<leftGuideMouth>>",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Generation",
+                    "findString": "<<handsstrugglefreebodypart \"right\">>\n\t\t\t\t<<rightUndressOther>>",
+                    "replace": "<<handsstrugglefreebodypart \"right\">>\n\t\t\t\t<<rightUndressOther>>\n\t\t\t\t<<rightGuideMouth>>",
+                    "replaceFile": "",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Generation",
+                    "findString": "<<case \"rightUndressOther\">>\n\t\t<<if Object.keys(_undressRightTargets).length gt 1>>\n\t\t\t<<listbox \"$undressRightTarget\">>\n\t\t\t\t<<optionsfrom _undressRightTargets>>\n\t\t\t<</listbox>>\n\t\t\t<<handdifficulty>> <<combatpromiscuous2>>\n\t\t<</if>>",
+                    "replace": "<<case \"rightUndressOther\">>\n\t\t<<if Object.keys(_undressRightTargets).length gt 1>>\n\t\t\t<<listbox \"$undressRightTarget\">>\n\t\t\t\t<<optionsfrom _undressRightTargets>>\n\t\t\t<</listbox>>\n\t\t\t<<handdifficulty>> <<combatpromiscuous2>>\n\t\t<</if>>\n\t\t<<case \"rightGuideMouth\">>\n\t\t\t<<if Object.keys(_guideMouthTargets).length gt 0>>\n\t\t\t\t<<listbox \"$mouthGuideRight\" autoselect>>\n\t\t\t\t\t<<optionsfrom _guideMouthTargets>>\n\t\t\t\t<</listbox>>\n\t\t\t<</if>>\n\t\t\t<<handdifficulty>> <<combatpromiscuous3>>",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Right Hand",
+                    "findString": "<<widget \"rightUndressOther\">>",
+                    "replaceFile": "actions-hands-right.twee",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Effects Man",
+                    "findString": "<<if $leftaction is \"leftUndressOther\">>",
+                    "replaceFile": "effects.twee",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Left Hand",
+                    "findString": "<<if ($NPCList[$lefttarget].lefthand and $NPCList[$lefttarget].lefthand.startsWith(\"anus\"))\n\t\tor ($NPCList[$lefttarget].righthand and $NPCList[$lefttarget].righthand.startsWith(\"anus\"))>>",
+                    "replace": "<<if ($NPCList[$lefttarget].mouth isnot 0)>>\n    <<set _leftaction[\"将\" + $NPCList[$lefttarget].pronouns.his + \"的嘴从你的\" + ($NPCList[$lefttarget].mouth.startsWith(\"chest\") ? \"胸部\" : $NPCList[$lefttarget].mouth.startsWith(\"penis\") ? \"阴茎\" : $NPCList[$lefttarget].mouth.startsWith(\"vagina\") ? \"小穴\" : \"菊穴\") + \"移开\"] to \"handpullmouth\">>\n<</if>>\n\n\t\t<<if ($NPCList[$lefttarget].lefthand and $NPCList[$lefttarget].lefthand.startsWith(\"anus\"))\n\t\tor ($NPCList[$lefttarget].righthand and $NPCList[$lefttarget].righthand.startsWith(\"anus\"))>>",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Actions Right Hand",
+                    "findString": "<<if ($NPCList[$righttarget].lefthand and $NPCList[$righttarget].lefthand.startsWith(\"anus\"))\n\t\tor ($NPCList[$righttarget].righthand and $NPCList[$righttarget].righthand.startsWith(\"anus\"))>>",
+                    "replace": "<<if ($NPCList[$righttarget].mouth isnot 0)>>\n    <<set _rightaction[\"将\" + $NPCList[$righttarget].pronouns.his + \"的嘴从你的\" + ($NPCList[$righttarget].mouth.startsWith(\"chest\") ? \"胸部\" : $NPCList[$righttarget].mouth.startsWith(\"penis\") ? \"阴茎\" : $NPCList[$righttarget].mouth.startsWith(\"vagina\") ? \"小穴\" : \"菊穴\") + \"移开\"] to \"handpullmouth\">>\n<</if>>\n\n\t\t<<if ($NPCList[$righttarget].lefthand and $NPCList[$righttarget].lefthand.startsWith(\"anus\"))\n\t\tor ($NPCList[$righttarget].righthand and $NPCList[$righttarget].righthand.startsWith(\"anus\"))>>",
+                    "debug": true,
+                    "all": true
+                },
+                {
+                    "passage": "Widgets Effects Hands",
+                    "findString": "<<if $leftaction is \"handpullanus\" or $rightaction is \"handpullanus\">>",
+                    "replaceFile": "actions-hands-pull.twee",
+                    "debug": true,
+                    "all": true
+                }
+            ]
+        },
+        {
+            "modName": "ReplacePatcher",
+            "addonName": "ReplacePatcherAddon",
+            "modVersion": "1.0.0",
+            "params": {
+                "js": [
+                    {
+                        "from": "\"rightstruggleweak\", \"handpullpenis\", \"handpullvagina\", \"handpullanus\"",
+                        "to": "\"rightstruggleweak\", \"handpullpenis\", \"handpullvagina\", \"handpullanus\", \"handpullmouth\"",
+                        "fileName": "ingame.js"
+                    }
+                ],
+                "css": [],
+                "twee": []
+            }
+        }
+    ],
+    "dependenceInfo": [
+        {
+            "modName": "TweeReplacer",
+            "version": "^1.2.0"
+        },
+        {
+            "modName": "ReplacePatcher",
+            "version": "^1.0.0"
+        }
+    ]
+}
