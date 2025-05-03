@@ -4,28 +4,28 @@
 				你放松手臂。
 			<<else>>
 				<<set $rightaction to 0>><<set $leftaction to 0>><<set $rightactiondefault to "rightGuideMouth">><<set $leftactiondefault to "leftGuideMouth">>
-				<<handskilluse>><<combatpromiscuity2>><<brat 2 $righttarget>>
+				<<handskilluse>><<combatpromiscuity3>>
 				<<set $_npc to $NPCList[$righttarget]>><<set $_mouthTarget to $mouthGuideRight>>
 				<<personselect $righttarget>>
 				<<if combatSkillCheck("hand", $lefttarget, $NPCList[$lefttarget].fullDescription, 1000)>>
 					<<switch $_mouthTarget>>
 						<<case "chestentrance">>
-							<span class="lblue">你用双手引导<<hisselect $_npc>>的嘴到你的胸部。</span>
+							<span class="lblue">你用双手引导<<hisselect $righttarget>>的嘴到你的胸部。</span>
 							<<set $_npc.mouth to "chestentrance">>
 						<<case "penisentrance">>
-							<span class="lblue">你用双手引导<<hisselect $_npc>>的嘴到你的阴茎。</span>
+							<span class="lblue">你用双手引导<<hisselect $righttarget>>的嘴到你的阴茎。</span>
 							<<set $_npc.mouth to "penisentrance">>
 						<<case "vaginaentrance">>
-							<span class="lblue">你用双手引导<<hisselect $_npc>>的嘴到你的阴道。</span>
+							<span class="lblue">你用双手引导<<hisselect $righttarget>>的嘴到你的阴道。</span>
 							<<set $_npc.mouth to "vaginaentrance">>
 						<<case "anusentrance">>
-							<span class="lblue">你用双手引导<<hisselect $_npc>>的嘴到你的肛门。</span>
+							<span class="lblue">你用双手引导<<hisselect $righttarget>>的嘴到你的肛门。</span>
 							<<set $_npc.mouth to "anusentrance">>
 						<<default>>
-							你试图引导<<hisselect $_npc>>的嘴，但失败了。<span class="red">不正确的嘴部目标：$_mouthTarget。请报告此错误。</span>
+							你试图引导<<hisselect $righttarget>>的嘴，但失败了。<span class="red">不正确的嘴部目标：$_mouthTarget。请报告此错误。</span>
 					<</switch>>
 				<<else>>
-					你试图引导<<hisselect $_npc>>的嘴到你想要的位置，但<<he>>拒绝了。
+					你试图引导<<hisselect $righttarget>>的嘴到你想要的位置，但<<he>>拒绝了。
 				<</if>>
 			<</if>>
 			<<unset $mouthGuideLeft>><<unset $mouthGuideRight>>
@@ -36,28 +36,28 @@
 				<<set $leftaction to 0>><<set $leftactiondefault to "rest">>
 				你放松自己的左臂。
 			<<else>>
-				<<set $leftaction to 0>><<set $leftactiondefault to "leftGuideMouth">><<handskilluse>><<combatpromiscuity2>><<brat 1 $lefttarget>>
+				<<set $leftaction to 0>><<set $leftactiondefault to "leftGuideMouth">><<handskilluse>><<combatpromiscuity3>>
 				<<set $_npc to $NPCList[$lefttarget]>><<set $_mouthTarget to $mouthGuideLeft>>
 				<<personselect $lefttarget>>
 				<<if combatSkillCheck("hand", $lefttarget, $NPCList[$lefttarget].fullDescription, 1000)>>
 					<<switch $_mouthTarget>>
 						<<case "chestentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的胸部。</span>
+							<span class="lblue">你引导<<hisselect $lefttarget>>的嘴到你的胸部。</span>
 							<<set $_npc.mouth to "chestentrance">>
 						<<case "penisentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的阴茎。</span>
+							<span class="lblue">你引导<<hisselect $lefttarget>>的嘴到你的阴茎。</span>
 							<<set $_npc.mouth to "penisentrance">>
 						<<case "vaginaentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的阴道。</span>
+							<span class="lblue">你引导<<hisselect $lefttarget>>的嘴到你的阴道。</span>
 							<<set $_npc.mouth to "vaginaentrance">>
 						<<case "anusentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的肛门。</span>
+							<span class="lblue">你引导<<hisselect $lefttarget>>的嘴到你的肛门。</span>
 							<<set $_npc.mouth to "anusentrance">>
 						<<default>>
-							你试图引导<<hisselect $_npc>>的嘴，但没有成功。<span class="red">不正确的嘴部目标：$_mouthTarget。请报告此错误。</span>
+							你试图引导<<hisselect $lefttarget>>的嘴，但没有成功。<span class="red">不正确的嘴部目标：$_mouthTarget。请报告此错误。</span>
 					<</switch>>
 				<<else>>
-					你试图引导<<hisselect $_npc>>的嘴到你想要的位置，但<<he>>拒绝了。
+					你试图引导<<hisselect $lefttarget>>的嘴到你想要的位置，但<<he>>拒绝了。
 				<</if>>
 			<</if>>
 			<<unset $mouthGuideLeft>>
@@ -69,28 +69,28 @@
 				你放松自己的右臂。
 			<<else>>
 				<<set $rightaction to 0>><<set $rightactiondefault to "rightGuideMouth">><<handskilluse>
-				<<combatpromiscuity2>><<brat 1 $righttarget>>
+				<<combatpromiscuity3>>
 				<<set $_npc to $NPCList[$righttarget]>><<set $_mouthTarget to $mouthGuideRight>>
 				<<personselect $righttarget>>
 				<<if combatSkillCheck("hand", $righttarget, $NPCList[$righttarget].fullDescription, 1000)>>
 					<<switch $_mouthTarget>>
 						<<case "chestentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的胸部。</span>
+							<span class="lblue">你引导<<hisselect $righttarget>>的嘴到你的胸部。</span>
 							<<set $_npc.mouth to "chestentrance">>
 						<<case "penisentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的阴茎。</span>
+							<span class="lblue">你引导<<hisselect $righttarget>>的嘴到你的阴茎。</span>
 							<<set $_npc.mouth to "penisentrance">>
 						<<case "vaginaentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的阴道。</span>
+							<span class="lblue">你引导<<hisselect $righttarget>>的嘴到你的阴道。</span>
 							<<set $_npc.mouth to "vaginaentrance">>
 						<<case "anusentrance">>
-							<span class="lblue">你引导<<hisselect $_npc>>的嘴到你的肛门。</span>
+							<span class="lblue">你引导<<hisselect $righttarget>>的嘴到你的肛门。</span>
 							<<set $_npc.mouth to "anusentrance">>
 						<<default>>
-							你试图引导<<hisselect $_npc>>的嘴，但没有成功。<span class="red">不正确的嘴部目标：$_mouthTarget。请报告此错误。</span>
+							你试图引导<<hisselect $righttarget>>的嘴，但没有成功。<span class="red">不正确的嘴部目标：$_mouthTarget。请报告此错误。</span>
 					<</switch>>
 				<<else>>
-					你试图引导<<hisselect $_npc>>的嘴到你想要的位置，但<<he>>拒绝了。
+					你试图引导<<hisselect $righttarget>>的嘴到你想要的位置，但<<he>>拒绝了。
 				<</if>>
 			<</if>>
 			<<unset $mouthGuideRight>>
