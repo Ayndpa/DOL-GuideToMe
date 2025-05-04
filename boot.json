@@ -82,6 +82,13 @@
                     "replaceFile": "actions-hands-pull.twee",
                     "debug": true,
                     "all": true
+                },
+                {
+                    "passage": "Widgets Combat Beast",
+                    "findString": "<<if $NPCList[_n].mouth is \"hair\">>",
+                    "replaceFile": "beast.twee",
+                    "debug": true,
+                    "all": true
                 }
             ]
         },
